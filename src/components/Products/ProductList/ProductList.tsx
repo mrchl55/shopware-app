@@ -3,6 +3,7 @@ import {useHttp} from "../../../hooks/use-http";
 import {Product} from "../../../models/Product";
 import ProductItem from "../ProductItem/ProductItem";
 import {SearchContext} from "../../../App";
+import Spinner from 'react-bootstrap/Spinner';
 
 type ProductListProps = {}
 
@@ -34,7 +35,7 @@ const ProductList: React.FC<ProductListProps> = props => {
                     'sw-access-key': 'SWSCMDV3N2DIOUNZTKNNCTBBCW'
 
                 })
-                const mappedProductsData = productsData.elements.map((p: any) => {
+                const mappedProductsData = await productsData.elements.map((p: any) => {
                     return {
                         id: p.id,
                         name: p.name || p.translated.name,
@@ -50,10 +51,9 @@ const ProductList: React.FC<ProductListProps> = props => {
         }
         getProucts()
 
-
     }, [sendRequest, searchQuery, sortBy])
     if (isLoading) {
-        return <p className='d-flex justify-content-center'>Loading..</p>
+        return <div className='d-flex justify-content-center'><Spinner/></div>
     }
     if (error) {
         return <p className='d-flex justify-content-center'>Error occured</p>

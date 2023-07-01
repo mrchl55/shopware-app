@@ -1,6 +1,6 @@
 type SearchInputProps = {
     query: string,
-   onChangeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void
+    onChangeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 const SearchInput: React.FC<SearchInputProps> = props => {
     const {query, onChangeHandler} = props
