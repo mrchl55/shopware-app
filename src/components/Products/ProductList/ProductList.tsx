@@ -37,10 +37,10 @@ const ProductList: React.FC<ProductListProps> = props => {
 
 
     }, [sendRequest])
-    return <ul>
+    return <div className='row'>
         {products.map(p => <ProductItem id={p.id} key={p.id} name={p.name} description={p.description}
                                         price={p.price}/>)}
-    </ul>
+    </div>
 }
 
 export default ProductList
