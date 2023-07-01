@@ -1,5 +1,3 @@
-import {useEffect, useState} from "react";
-import {useHttp} from "../../../hooks/use-http";
 import {Product} from "../../../models/Product";
 import Card from "../../UI/Card/Card";
 
@@ -7,11 +5,11 @@ type ProductItemProps = Product
 
 const ProductItem: React.FC<ProductItemProps> = props => {
     const {name, description, price} = props
-    return (<Card classes='col-lg-4 d-flex flex-column'>
+    return (<Card classes='col-lg-4 d-flex flex-column p-4'>
         <>
-            <div>{name}</div>
-            <div>{description}</div>
-            <div>Cena: {price}</div>
+            <div><b>{name}</b></div>
+            <div className='my-2'>{description}</div>
+            <div className='d-flex justify-content-between'><span>Cena:</span> <b>{price}</b></div>
         </>
     </Card>)
 }
